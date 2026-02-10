@@ -1,33 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <title>Course Explainer</title>
-</head>
-<body>
-    {% include 'layout.html' %}
-    <div class="container">
-        <h1>Welcome to the Course Explainer</h1>
-        <p>This application provides an overview of various courses available.</p>
+{% extends 'layout.html' %}
 
-        <div class="course-section">
-            <div id="course-list" class="course-list">
-                {% for course in courses %}
-                <div class="course-card" data-course-id="{{ course.id }}">
-                    <h2>{{ course.title }}</h2>
-                    <p>{{ course.description }}</p>
-                    <p class="instructor">Instructor: {{ course.instructor }}</p>
-                </div>
-                {% endfor %}
+{% block content %}
+<div class="hero-section">
+    <h1>Welcome to the Course Explainer</h1>
+    <p>Discover a wide range of courses designed to enhance your skills and knowledge. Dive in and find your next learning adventure!</p>
+    <a href="#course-list-section" class="btn-primary">Explore Courses</a>
+</div>
+
+<div class="content-section">
+    <h2 class="text-2xl mb-6 text-center">Available Courses</h2>
+    <div class="course-section">
+        <div id="course-list" class="course-list">
+            {% for course in courses %}
+            <div class="course-card" data-course-id="{{ course.id }}">
+                <h2>{{ course.title }}</h2>
+                <p>{{ course.description }}</p>
+                <p class="instructor">Instructor: {{ course.instructor }}</p>
             </div>
-            <div id="course-detail-panel" class="course-detail-panel">
-                <!-- Course details will be loaded here -->
-                <h2>Select a course to see details</h2>
-            </div>
+            {% endfor %}
+        </div>
+        <div id="course-detail-panel" class="course-detail-panel">
+            <!-- Course details will be loaded here -->
+            <h2>Select a course to see details</h2>
         </div>
     </div>
-    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-</body>
-</html>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+{% endblock %}
