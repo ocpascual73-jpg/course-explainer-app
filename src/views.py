@@ -1,5 +1,5 @@
 from flask import render_template, jsonify
-from models import Course, courses
+from models import Course, courses, videos
 
 def index():
     return render_template('index.html', courses=courses)
@@ -16,3 +16,6 @@ def api_course_detail(course_id):
 
 def contact():
     return render_template('contact.html')
+
+def videos_page():
+    return render_template('videos.html', videos=videos)

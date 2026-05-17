@@ -27,5 +27,11 @@ class AppTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Contact Us', response.data)
 
+    def test_videos(self):
+        response = self.app.get('/videos')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'YouTube Videos', response.data)
+        self.assertIn(b'Python for Beginners', response.data)
+
 if __name__ == '__main__':
     unittest.main()

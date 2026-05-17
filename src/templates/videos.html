@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="hero-section">
+    <h1>YouTube Videos</h1>
+    <p>Watch helpful videos to supplement your learning.</p>
+</div>
+
+<div class="content-section">
+    <h2 class="text-2xl mb-6 text-center">Featured Videos</h2>
+    <div class="course-list">
+        {% for video in videos %}
+        <div class="course-card">
+            <a href="{{ video.url }}" target="_blank" class="no-underline text-inherit">
+                <img src="{{ video.thumbnail }}" alt="{{ video.title }}" style="width: 100%; border-radius: 8px; margin-bottom: 10px;">
+                <h2 class="text-xl font-semibold">{{ video.title }}</h2>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
