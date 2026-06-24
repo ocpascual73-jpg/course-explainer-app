@@ -33,6 +33,34 @@ class AppTestCase(unittest.TestCase):
         self.assertIn(b'Go Programming Essentials', response.data)
         self.assertIn(b'Robert Chen', response.data)
 
+    def test_course_detail_displays_course_info(self):
+        """Regression for issue #2: the course detail page must render the
+        selected course's information instead of raising a Jinja
+        UndefinedError for 'course'."""
+        response = self.app.get('/course/1')
+        self.assertEqual(response.status_code, 200)
+        # Title, description, instructor, duration and topics should render.
+        self.assertIn(b'Introduction to Python', response.data)
+        self.assertIn(b'Learn the basics of Python programming.', response.data)
+        self.assertIn(b'John Doe', response.data)
+        self.assertIn(b'4 weeks', response.data)
+        self.assertIn(b'Object-Oriented Programming', response.data)
+
+    def test_course_detail_is_single_document(self):
+        """Regression: course.html must extend layout.html as a proper child
+        template, producing one HTML document (the old template emitted a
+        malformed, doubled document and evaluated 'course' outside any block)."""
+        response = self.app.get('/course/1')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data.count(b'<!DOCTYPE html>'), 1)
+        # The page <title> should reflect the course, not the default layout title.
+        self.assertIn(b'<title>Introduction to Python</title>', response.data)
+
+    def test_course_not_found(self):
+        """Out-of-range course ids return a 404."""
+        response = self.app.get('/course/999')
+        self.assertEqual(response.status_code, 404)
+
     # Contact Page Tests
     def test_contact_page_loads(self):
         """Test that contact page returns 200 status"""
