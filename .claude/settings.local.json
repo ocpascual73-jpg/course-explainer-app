@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git checkout:*)",
+      "Bash(git add:*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "TodoWrite|Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \".claude\\play_sound.py\"",
+            "timeout": 15
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \".claude\\play_sound.py\"",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
+}

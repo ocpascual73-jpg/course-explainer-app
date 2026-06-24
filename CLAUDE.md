@@ -42,4 +42,4 @@ Simple Flask MVC app with three layers:
 
 ## Development Workflow
 
-- Whenever you add any changes, add unit tests and make sure the tests pass.
+- Whenever you add any changes, add unit tests and run it and make sure the tests pass.
