@@ -1,7 +1,11 @@
-from flask import render_template
+from flask import render_template, abort
+from models import get_course
 
 def index():
     return render_template('index.html')
 
 def course(course_id):
-    return render_template('course.html', course_id=course_id)
+    selected_course = get_course(course_id)
+    if selected_course is None:
+        abort(404)
+    return render_template('course.html', course=selected_course, course_id=course_id)
