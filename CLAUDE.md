@@ -43,3 +43,15 @@ Simple Flask MVC app with three layers:
 ## Development Workflow
 
 - Whenever you add any changes, add unit tests and run it and make sure the tests pass.
+
+### Verify Changes with Playwright (MANDATORY)
+
+## After implementing any new or enhance feature, you MUST:**
+
+1. Start the Flask application (if not already running - 'python src/app.py')
+2. Use the Playwright MCP tool to connect to the application at 'http://127.0.0.1:5000'
+3. Navigate to and interact with the new or enhance feature to verify it works correctly
+4. Take a screen shot of the working feature
+5. Save the screenshot in the 'test-output/' folder with a descriptive filename (e.g. 'feature-name-verification-YYYY-MM-DD.png')
+
+This step ensures that all features are visually verified and provides documentation of the working state of the application.
