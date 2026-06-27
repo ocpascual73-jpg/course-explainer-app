@@ -1,8 +1,8 @@
 from flask import render_template, abort
-from models import get_course
+from models import get_course, courses
 
 def index():
-    return render_template('index.html')
+    return render_template('index.html', courses=courses)
 
 def course(course_id):
     selected_course = get_course(course_id)

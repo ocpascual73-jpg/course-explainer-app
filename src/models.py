@@ -31,6 +31,13 @@ courses = [
         "8 weeks",
         ["NumPy", "pandas", "Visualization", "Machine learning basics"],
     ),
+    Course(
+        "Go Programming Language",
+        "Learn to build fast, reliable software with Go.",
+        "Robert Pike",
+        "5 weeks",
+        ["Goroutines", "Channels", "Interfaces", "Packages & modules"],
+    ),
 ]
 
 def get_course(course_id):

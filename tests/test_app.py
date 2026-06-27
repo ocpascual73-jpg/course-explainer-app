@@ -1,6 +1,7 @@
 import unittest
 import sys
 import os
+from markupsafe import escape
 
 # Add the src directory to the Python path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
@@ -18,6 +19,21 @@ class AppTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Welcome to the Course Explainer', response.data)
 
+    def test_index_lists_course_titles(self):
+        # The home page links must show each course's title, not "Course 1/2/3".
+        response = self.app.get('/')
+        self.assertEqual(response.status_code, 200)
+        self.assertNotIn(b'>Course 1<', response.data)
+        for course in courses:
+            self.assertIn(course.title.encode(), response.data)
+
+    def test_go_course_present(self):
+        response = self.app.get('/')
+        self.assertIn(b'Go Programming Language', response.data)
+        last = self.app.get('/course/{}'.format(len(courses)))
+        self.assertEqual(last.status_code, 200)
+        self.assertIn(b'Go Programming Language', last.data)
+
     def test_course(self):
         response = self.app.get('/course/1')
         self.assertEqual(response.status_code, 200)
@@ -29,12 +45,14 @@ class AppTestCase(unittest.TestCase):
         first = courses[0]
         response = self.app.get('/course/1')
         self.assertEqual(response.status_code, 200)
-        self.assertIn(first.title.encode(), response.data)
-        self.assertIn(first.description.encode(), response.data)
-        self.assertIn(first.instructor.encode(), response.data)
-        self.assertIn(first.duration.encode(), response.data)
+        # Jinja2 autoescapes output, so compare against the escaped form
+        # (e.g. "Variables & data types" renders as "Variables &amp; data types").
+        self.assertIn(str(escape(first.title)).encode(), response.data)
+        self.assertIn(str(escape(first.description)).encode(), response.data)
+        self.assertIn(str(escape(first.instructor)).encode(), response.data)
+        self.assertIn(str(escape(first.duration)).encode(), response.data)
         for topic in first.topics:
-            self.assertIn(topic.encode(), response.data)
+            self.assertIn(str(escape(topic)).encode(), response.data)
 
     def test_unknown_course_returns_404(self):
         response = self.app.get('/course/999')
