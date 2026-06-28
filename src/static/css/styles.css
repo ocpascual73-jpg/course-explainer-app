@@ -150,28 +150,41 @@ a { color:var(--primary); }
 /* ============================================================
    Contact page
    ============================================================ */
-.contact-card { background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg); padding:var(--space-8); box-shadow:var(--shadow-sm); }
-.contact-details { margin:var(--space-6) 0; }
-.contact-details dt { float:left; clear:left; width:110px; font-weight:700; color:var(--text-secondary); }
-.contact-details dd { margin:0 0 var(--space-3) 130px; color:var(--text-primary); }
-.contact-details dd a { color:var(--primary); text-decoration:none; }
-.contact-details dd a:hover { text-decoration:underline; }
 
-hr { border:none; border-top:1px solid var(--border); margin:var(--space-6) 0; }
-
-.social-links h2 { font-size:var(--text-base, 16px); color:var(--text-primary); margin:0 0 var(--space-3); }
-.social-links ul { list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:var(--space-4); }
-.social-links li { margin:0; }
-.social-links a {
-    display:inline-flex; align-items:center; justify-content:center;
-    width:40px; height:40px;
-    border:1px solid var(--border); border-radius:var(--radius-md);
-    color:var(--primary); text-decoration:none;
-    transition:background-color 150ms ease, border-color 150ms ease;
+/* Social link cards — styled like .topic-list but horizontal */
+.social-card-list { list-style:none; margin:0; padding:0; display:grid; gap:var(--space-3); }
+.social-card-list__item { margin:0; }
+.social-card-list__item a {
+    display:flex; align-items:center; gap:var(--space-4);
+    padding:var(--space-4) var(--space-5);
+    background:#fff; border:1px solid var(--border); border-radius:var(--radius-md);
+    color:var(--text-primary); text-decoration:none;
+    box-shadow:var(--shadow-sm);
+    transition:transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
 }
-.social-links a:hover { background-color:var(--primary-light); border-color:var(--primary); }
-.social-links a:focus-visible { outline:2px solid var(--primary); outline-offset:2px; }
-.social-links svg { display:block; flex-shrink:0; }
+.social-card-list__item a:hover {
+    transform:translateY(-2px);
+    box-shadow:var(--shadow-md);
+    border-color:var(--primary);
+}
+.social-card-list__item a:focus-visible {
+    outline:2px solid var(--primary);
+    outline-offset:2px;
+}
+.social-card-list__item svg {
+    width:28px; height:28px;
+    flex:0 0 auto;
+    color:var(--primary);
+}
+.social-card-list__label {
+    font-weight:600;
+    font-size:var(--text-base, 16px);
+    color:var(--text-primary);
+}
+
+/* Email link inside info-card (overrides default link style) */
+.info-card .info-value a { color:var(--primary); text-decoration:none; font-weight:600; }
+.info-card .info-value a:hover { text-decoration:underline; }
 
 /* ============================================================
    Responsive
@@ -188,10 +201,6 @@ hr { border:none; border-top:1px solid var(--border); margin:var(--space-6) 0; }
     .course-hero__title { font-size:var(--text-3xl, 30px); }
 }
 
-@media (max-width:480px) {
-    .contact-details dt { float:none; width:auto; margin-bottom:var(--space-1); }
-    .contact-details dd { margin:0 0 var(--space-3); }
-}
 
 /* Respect reduced-motion preference */
 @media (prefers-reduced-motion: reduce) {
