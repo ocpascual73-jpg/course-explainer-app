@@ -49,3 +49,16 @@ def get_course(course_id):
     if 0 <= index < len(courses):
         return courses[index]
     return None
+
+# Static contact details displayed on the /contact page.
+# Placeholder social URLs — update to real handles when available.
+CONTACT_INFO = {
+    "name": "Course Explainer Team",
+    "email": "hello@courseexplainer.com",
+    "address": "123 Learning Lane, Suite 400, San Francisco, CA 94105",
+    "social_links": [
+        {"platform": "Twitter/X", "url": "https://twitter.com/courseexplainer"},
+        {"platform": "LinkedIn", "url": "https://linkedin.com/company/courseexplainer"},
+        {"platform": "GitHub", "url": "https://github.com/courseexplainer"},
+    ],
+}

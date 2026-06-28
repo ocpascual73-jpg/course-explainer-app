@@ -54,6 +54,37 @@ class AppTestCase(unittest.TestCase):
         for topic in first.topics:
             self.assertIn(str(escape(topic)).encode(), response.data)
 
+    def test_contact_status_200(self):
+        response = self.app.get('/contact')
+        self.assertEqual(response.status_code, 200)
+
+    def test_contact_heading(self):
+        response = self.app.get('/contact')
+        self.assertIn(b'Contact Us', response.data)
+
+    def test_contact_name(self):
+        response = self.app.get('/contact')
+        self.assertIn(b'Course Explainer Team', response.data)
+
+    def test_contact_email_link(self):
+        response = self.app.get('/contact')
+        self.assertIn(b'mailto:hello@courseexplainer.com', response.data)
+
+    def test_contact_address(self):
+        response = self.app.get('/contact')
+        self.assertIn(b'123 Learning Lane', response.data)
+
+    def test_contact_social_links(self):
+        response = self.app.get('/contact')
+        self.assertIn(b'twitter.com', response.data)
+        self.assertIn(b'linkedin.com', response.data)
+        self.assertIn(b'github.com', response.data)
+
+    def test_contact_link_in_nav(self):
+        # The Contact link should appear in the global nav on every page.
+        response = self.app.get('/')
+        self.assertIn(b'/contact', response.data)
+
     def test_unknown_course_returns_404(self):
         response = self.app.get('/course/999')
         self.assertEqual(response.status_code, 404)
