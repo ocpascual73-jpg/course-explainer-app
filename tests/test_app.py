@@ -34,6 +34,21 @@ class AppTestCase(unittest.TestCase):
         self.assertEqual(last.status_code, 200)
         self.assertIn(b'Go Programming Language', last.data)
 
+    def test_index_hero_subtitle(self):
+        # The home page hero should render its tagline.
+        response = self.app.get('/')
+        self.assertIn(b'Explore our curated courses', response.data)
+
+    def test_index_renders_course_cards(self):
+        # The home page should render each course as a card with the
+        # instructor, duration, and a "View Course" link — not a plain list.
+        response = self.app.get('/')
+        self.assertIn(b'course-card', response.data)
+        self.assertIn(b'View Course', response.data)
+        for course in courses:
+            self.assertIn(str(escape(course.instructor)).encode(), response.data)
+            self.assertIn(str(escape(course.duration)).encode(), response.data)
+
     def test_course(self):
         response = self.app.get('/course/1')
         self.assertEqual(response.status_code, 200)

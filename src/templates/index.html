@@ -3,12 +3,36 @@
 {% block title %}Course Explainer{% endblock %}
 
 {% block content %}
-<h1>Welcome to the Course Explainer</h1>
-<p>This application provides an overview of various courses available.</p>
-<h2>Available Courses</h2>
-<ul>
+<section class="hero">
+    <h2 class="hero-title">Welcome to the Course Explainer</h2>
+    <p class="hero-subtitle">Explore our curated courses and find your next learning journey.</p>
+</section>
+
+<h3 class="section-heading">Available Courses</h3>
+
+{% if not courses %}
+<p class="no-courses">No courses are available at this time.</p>
+{% else %}
+<div class="course-grid">
     {% for course in courses %}
-    <li><a href="{{ url_for('course', course_id=loop.index) }}">{{ course.title }}</a></li>
+    <div class="course-card">
+        <span class="course-card__badge" aria-hidden="true">{{ course.title[0] }}</span>
+        <h4 class="course-card__title">{{ course.title }}</h4>
+        <p class="course-card__meta">
+            <span class="course-card__avatar" aria-hidden="true">{{ course.instructor[0] }}</span>
+            <span>{{ course.instructor }} &middot; {{ course.duration }}</span>
+        </p>
+        <p class="course-card__description">{{ course.description }}</p>
+        {% if course.topics %}
+        <div class="course-card__topics">
+            {% for topic in course.topics %}
+            <span class="topic-chip">{{ topic }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <a class="btn btn--primary course-card__cta" href="{{ url_for('course', course_id=loop.index) }}" aria-label="View course: {{ course.title }}">View Course</a>
+    </div>
     {% endfor %}
-</ul>
+</div>
+{% endif %}
 {% endblock %}

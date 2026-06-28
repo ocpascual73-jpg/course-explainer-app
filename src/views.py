@@ -2,7 +2,7 @@ from flask import render_template, abort
 from models import get_course, courses, CONTACT_INFO
 
 def index():
-    return render_template('index.html', courses=courses)
+    return render_template('index.html', courses=courses, active_page='home')
 
 def course(course_id):
     selected_course = get_course(course_id)

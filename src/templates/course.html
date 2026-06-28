@@ -3,18 +3,47 @@
 {% block title %}{{ course.title }} — Course Explainer{% endblock %}
 
 {% block content %}
-<div class="course-details">
-    <h1>{{ course.title }}</h1>
-    <p>{{ course.description }}</p>
-    <h2>Instructor: {{ course.instructor }}</h2>
-    <h3>Duration: {{ course.duration }}</h3>
-    {% if course.topics %}
-    <h4>Topics Covered:</h4>
-    <ul>
-        {% for topic in course.topics %}
-            <li>{{ topic }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
+<a class="back-link" href="{{ url_for('index') }}">&larr; Back to courses</a>
+
+<section class="course-hero">
+    <span class="course-hero__badge" aria-hidden="true">{{ course.title[0] }}</span>
+    <div>
+        <h1 class="course-hero__title">{{ course.title }}</h1>
+        <p class="course-hero__desc">{{ course.description }}</p>
+    </div>
+</section>
+
+<div class="course-layout">
+    <div class="course-main">
+        <h2 class="course-section-title">What you'll learn</h2>
+        {% if course.topics %}
+        <ul class="topic-list">
+            {% for topic in course.topics %}
+            <li class="topic-list__item">{{ topic }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>Topics for this course are coming soon.</p>
+        {% endif %}
+    </div>
+
+    <aside class="course-aside">
+        <div class="info-card">
+            <h2 class="info-card__heading">Course details</h2>
+            <div class="info-row">
+                <span class="info-label">Instructor</span>
+                <span class="info-value">{{ course.instructor }}</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Duration</span>
+                <span class="info-value">{{ course.duration }}</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Modules</span>
+                <span class="info-value">{{ course.topics|length }}</span>
+            </div>
+            <a class="btn btn--primary btn--block" href="{{ url_for('contact') }}">Enroll Now</a>
+        </div>
+    </aside>
 </div>
 {% endblock %}
