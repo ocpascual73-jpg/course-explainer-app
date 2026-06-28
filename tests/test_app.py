@@ -80,6 +80,17 @@ class AppTestCase(unittest.TestCase):
         self.assertIn(b'linkedin.com', response.data)
         self.assertIn(b'github.com', response.data)
 
+    def test_contact_social_links_render_icons(self):
+        # Social links should render inline SVG icons (decorative, aria-hidden)
+        # instead of plain-text platform labels.
+        response = self.app.get('/contact')
+        self.assertIn(b'<svg', response.data)
+        self.assertIn(b'aria-hidden="true"', response.data)
+        # The platform name is no longer the visible link text...
+        self.assertNotIn(b'>Twitter/X<', response.data)
+        # ...but remains as the accessible label.
+        self.assertIn(b'aria-label="Twitter/X (opens in new tab)"', response.data)
+
     def test_contact_link_in_nav(self):
         # The Contact link should appear in the global nav on every page.
         response = self.app.get('/')

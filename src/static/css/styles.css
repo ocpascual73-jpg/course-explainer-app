@@ -43,8 +43,16 @@ p { line-height:1.6; color:#444; }
 .social-links h2 { font-size:16px; color:#444; margin:0 0 10px; }
 .social-links ul { list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:16px; }
 .social-links li { margin:0; }
-.social-links a { color:#2a6fb6; text-decoration:none; }
-.social-links a:hover { text-decoration:underline; }
+.social-links a {
+    display:inline-flex; align-items:center; justify-content:center;
+    width:40px; height:40px;
+    border:1px solid #d0d7de; border-radius:6px;
+    color:#2a6fb6; text-decoration:none;
+    transition:background-color 150ms ease, border-color 150ms ease;
+}
+.social-links a:hover { background-color:#eef4fb; border-color:#2a6fb6; text-decoration:none; }
+.social-links a:focus-visible { outline:2px solid #2a6fb6; outline-offset:2px; }
+.social-links svg { display:block; flex-shrink:0; }
 
 /* contact page — stack label/value on small screens */
 @media (max-width:480px) {

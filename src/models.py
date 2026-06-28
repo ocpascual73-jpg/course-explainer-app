@@ -57,8 +57,8 @@ CONTACT_INFO = {
     "email": "hello@courseexplainer.com",
     "address": "123 Learning Lane, Suite 400, San Francisco, CA 94105",
     "social_links": [
-        {"platform": "Twitter/X", "url": "https://twitter.com/courseexplainer"},
-        {"platform": "LinkedIn", "url": "https://linkedin.com/company/courseexplainer"},
-        {"platform": "GitHub", "url": "https://github.com/courseexplainer"},
+        {"platform": "Twitter/X", "url": "https://twitter.com/courseexplainer", "icon": "twitter"},
+        {"platform": "LinkedIn", "url": "https://linkedin.com/company/courseexplainer", "icon": "linkedin"},
+        {"platform": "GitHub", "url": "https://github.com/courseexplainer", "icon": "github"},
     ],
 }
