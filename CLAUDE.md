@@ -42,7 +42,7 @@ Simple Flask MVC app with three layers:
 
 ## Development Workflow
 
-- Whenever you add any changes, add unit tests and run it and make sure the tests pass.
+- Whenever you add any updates, add unit tests and run it and make sure the tests pass.
 
 ### Verify Changes with Playwright (MANDATORY)
 
@@ -54,4 +54,4 @@ Simple Flask MVC app with three layers:
 4. Take a screen shot of the working feature
 5. Save the screenshot in the 'test-output/' folder with a descriptive filename (e.g. 'feature-name-verification-YYYY-MM-DD.png')
 
-This step ensures that all new or enhance features are visually verified and provides documentation of the working state of the application.
+This step ensures that new or updated features are visually verified and provides documentation of the working state of the application.

@@ -48,7 +48,7 @@ course-explainer-app
 
 3. Install the required packages:
    ```
-   uv pip install -r requirements.txt
+   pip install -r requirements.txt
    ```
 
 ## Usage
