@@ -25,6 +25,33 @@ p { line-height:1.6; color:#444; }
 /* footer */
 .site-footer { max-width:1000px; margin:18px auto; padding:8px 20px; color:#555; font-size:13px; }
 
+/* active nav item + keyboard focus ring */
+.main-nav a[aria-current="page"] { background:rgba(255,255,255,0.12); text-decoration:underline; }
+.main-nav a:focus-visible { outline:2px solid #dfeeff; outline-offset:2px; }
+
+/* contact page — details list */
+.contact-details { margin:24px 0; }
+.contact-details dt { float:left; clear:left; width:110px; font-weight:700; color:#555; }
+.contact-details dd { margin:0 0 12px 130px; color:#333; }
+.contact-details dd a { color:#2a6fb6; text-decoration:none; }
+.contact-details dd a:hover { text-decoration:underline; }
+
+/* contact page — divider */
+.container hr { border:none; border-top:1px solid #e0e0e0; margin:24px 0; }
+
+/* contact page — social links */
+.social-links h2 { font-size:16px; color:#444; margin:0 0 10px; }
+.social-links ul { list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap:16px; }
+.social-links li { margin:0; }
+.social-links a { color:#2a6fb6; text-decoration:none; }
+.social-links a:hover { text-decoration:underline; }
+
+/* contact page — stack label/value on small screens */
+@media (max-width:480px) {
+    .contact-details dt { float:none; width:auto; margin-bottom:2px; }
+    .contact-details dd { margin:0 0 12px; }
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;

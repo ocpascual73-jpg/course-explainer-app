@@ -1,5 +1,5 @@
 from flask import render_template, abort
-from models import get_course, courses
+from models import get_course, courses, CONTACT_INFO
 
 def index():
     return render_template('index.html', courses=courses)
@@ -9,3 +9,6 @@ def course(course_id):
     if selected_course is None:
         abort(404)
     return render_template('course.html', course=selected_course, course_id=course_id)
+
+def contact():
+    return render_template('contact.html', contact=CONTACT_INFO, active_page='contact')
