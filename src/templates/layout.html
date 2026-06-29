@@ -28,7 +28,31 @@
   </main>
 
   <footer class="site-footer">
-    <div class="footer-inner">© 2023 Course Explainer App</div>
+    <div class="footer-inner">
+      <div class="footer-cols">
+        <div class="footer-col footer-brand">
+          <p class="footer-brand__name">Course Explainer</p>
+          <p class="footer-brand__tagline">Discover and explore curated courses, anytime, anywhere.</p>
+        </div>
+        <div class="footer-col">
+          <h2 class="footer-col__heading">Navigation</h2>
+          <ul class="footer-links">
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('course', course_id=1) }}">Courses</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2 class="footer-col__heading">Connect</h2>
+          <ul class="footer-links">
+            <li><a href="https://twitter.com/courseexplainer" target="_blank" rel="noopener noreferrer">Twitter / X</a></li>
+            <li><a href="https://www.linkedin.com/company/courseexplainer" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://github.com/courseexplainer" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Course Explainer. All rights reserved.</div>
+    </div>
   </footer>
 </body>
 </html>

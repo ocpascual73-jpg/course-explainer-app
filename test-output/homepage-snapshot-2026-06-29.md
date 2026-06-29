@@ -1,0 +1,42 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - heading "Course Explainer" [level=1] [ref=e4]
+      - navigation [ref=e5]:
+        - list [ref=e6]
+  - main [ref=e13]:
+    - generic [ref=e15]:
+      - paragraph [ref=e16]: Featured Course
+      - heading "Introduction to Python" [level=2] [ref=e17]
+      - paragraph [ref=e18]: Learn the basics of Python programming.
+      - generic [ref=e19]:
+        - link "Learn More" [ref=e20] [cursor=pointer]:
+          - /url: /course/1
+        - link "All Courses" [ref=e21] [cursor=pointer]:
+          - /url: "#courses"
+    - heading "Available Courses" [level=3] [ref=e22]
+    - generic [ref=e23]:
+      - heading "All Courses" [level=4] [ref=e24]
+      - generic [ref=e25]:
+        - button "Scroll All Courses left" [ref=e26] [cursor=pointer]: ‹
+        - generic [ref=e27]
+        - button "Scroll All Courses right" [ref=e92] [cursor=pointer]: ›
+    - generic [ref=e93]:
+      - heading "Programming" [level=4] [ref=e94]
+      - generic [ref=e95]:
+        - button "Scroll Programming left" [ref=e96] [cursor=pointer]: ‹
+        - generic [ref=e97]
+        - button "Scroll Programming right" [ref=e146] [cursor=pointer]: ›
+    - generic [ref=e147]:
+      - heading "Data Science" [level=4] [ref=e148]
+      - generic [ref=e149]:
+        - button "Scroll Data Science left" [ref=e150] [cursor=pointer]: ‹
+        - generic [ref=e152]
+        - button "Scroll Data Science right" [ref=e168] [cursor=pointer]: ›
+  - contentinfo [ref=e169]:
+    - generic [ref=e170]:
+      - generic [ref=e171]:
+        - generic [ref=e172]
+        - generic [ref=e175]
+        - generic [ref=e184]
+      - generic [ref=e193]: © 2026 Course Explainer. All rights reserved.

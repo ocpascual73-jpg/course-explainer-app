@@ -17,7 +17,10 @@ class AppTestCase(unittest.TestCase):
     def test_index(self):
         response = self.app.get('/')
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b'Welcome to the Course Explainer', response.data)
+        # Netflix-style homepage: the spotlight banner shows a "Featured Course"
+        # eyebrow and the carousel exposes an "All Courses" row heading.
+        self.assertIn(b'Featured Course', response.data)
+        self.assertIn(b'All Courses', response.data)
 
     def test_index_lists_course_titles(self):
         # The home page links must show each course's title, not "Course 1/2/3".
@@ -35,15 +38,18 @@ class AppTestCase(unittest.TestCase):
         self.assertIn(b'Go Programming Language', last.data)
 
     def test_index_hero_subtitle(self):
-        # The home page hero should render its tagline.
+        # The hero spotlight subtitle now mirrors the featured course's
+        # description (courses[0]).
         response = self.app.get('/')
-        self.assertIn(b'Explore our curated courses', response.data)
+        self.assertIn(b'Learn the basics of Python programming.', response.data)
 
     def test_index_renders_course_cards(self):
         # The home page should render each course as a card with the
         # instructor, duration, and a "View Course" link — not a plain list.
         response = self.app.get('/')
         self.assertIn(b'course-card', response.data)
+        # Netflix redesign: cards carry the new "nf-card" class too.
+        self.assertIn(b'nf-card', response.data)
         self.assertIn(b'View Course', response.data)
         for course in courses:
             self.assertIn(str(escape(course.instructor)).encode(), response.data)

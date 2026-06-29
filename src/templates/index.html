@@ -4,35 +4,85 @@
 
 {% block content %}
 <section class="hero">
-    <h2 class="hero-title">Welcome to the Course Explainer</h2>
-    <p class="hero-subtitle">Explore our curated courses and find your next learning journey.</p>
+    <div class="hero-content">
+        {% if courses %}
+        <p class="hero-eyebrow">Featured Course</p>
+        <h2 class="hero-title">{{ courses[0].title }}</h2>
+        <p class="hero-subtitle">{{ courses[0].description }}</p>
+        <div class="hero-actions">
+            <a class="btn btn--primary" href="{{ url_for('course', course_id=1) }}">Learn More</a>
+            <a class="btn btn--outline" href="#courses">All Courses</a>
+        </div>
+        {% else %}
+        <h2 class="hero-title">Course Explainer</h2>
+        <p class="hero-subtitle">Start streaming knowledge. New courses are on the way.</p>
+        <div class="hero-actions">
+            <a class="btn btn--outline" href="{{ url_for('index') }}">All Courses</a>
+        </div>
+        {% endif %}
+    </div>
 </section>
 
-<h3 class="section-heading">Available Courses</h3>
+<h3 class="section-heading" id="courses">Available Courses</h3>
 
 {% if not courses %}
 <p class="no-courses">No courses are available at this time.</p>
 {% else %}
-<div class="course-grid">
-    {% for course in courses %}
-    <div class="course-card">
-        <span class="course-card__badge" aria-hidden="true">{{ course.title[0] }}</span>
-        <h4 class="course-card__title">{{ course.title }}</h4>
-        <p class="course-card__meta">
-            <span class="course-card__avatar" aria-hidden="true">{{ course.instructor[0] }}</span>
-            <span>{{ course.instructor }} &middot; {{ course.duration }}</span>
-        </p>
-        <p class="course-card__description">{{ course.description }}</p>
+{% macro nf_card(course, course_id) %}
+<div class="course-card nf-card">
+    <div class="nf-card__top">
+        <span class="nf-card__badge" aria-hidden="true">{{ course.title[0] }}</span>
+        <div class="nf-card__info">
+            <h4 class="course-card__title">{{ course.title }}</h4>
+            <p class="course-card__meta">
+                <span class="course-card__avatar" aria-hidden="true">{{ course.instructor[0] }}</span>
+                <span>{{ course.instructor }} &middot; {{ course.duration }}</span>
+            </p>
+        </div>
+    </div>
+    <p class="nf-card__desc">{{ course.description }}</p>
+    <div class="nf-card__bottom">
         {% if course.topics %}
         <div class="course-card__topics">
-            {% for topic in course.topics %}
+            {% for topic in course.topics[:3] %}
             <span class="topic-chip">{{ topic }}</span>
             {% endfor %}
+            {% if course.topics|length > 3 %}
+            <span class="topic-chip topic-chip--more">+{{ course.topics|length - 3 }}</span>
+            {% endif %}
         </div>
         {% endif %}
-        <a class="btn btn--primary course-card__cta" href="{{ url_for('course', course_id=loop.index) }}" aria-label="View course: {{ course.title }}">View Course</a>
+        <a class="btn btn--primary course-card__cta" href="{{ url_for('course', course_id=course_id) }}" aria-label="View course: {{ course.title }}">View Course</a>
     </div>
-    {% endfor %}
 </div>
+{% endmacro %}
+
+{% macro nf_row(heading, courses, filter_idx) %}
+<section class="course-row">
+    <h4 class="course-row__heading">{{ heading }}</h4>
+    <div class="course-row__viewport">
+        <button type="button" class="row-arrow row-arrow--left" aria-label="Scroll {{ heading }} left" onclick="nfScroll(this, -1)">&#8249;</button>
+        <div class="row-track">
+            {% for course in courses %}
+            {% if filter_idx is none or loop.index in filter_idx %}
+            {{ nf_card(course, loop.index) }}
+            {% endif %}
+            {% endfor %}
+        </div>
+        <button type="button" class="row-arrow row-arrow--right" aria-label="Scroll {{ heading }} right" onclick="nfScroll(this, 1)">&#8250;</button>
+    </div>
+</section>
+{% endmacro %}
+
+{{ nf_row('All Courses', courses, none) }}
+{{ nf_row('Programming', courses, [1, 2, 4]) }}
+{{ nf_row('Data Science', courses, [3]) }}
+
+<script>
+function nfScroll(btn, dir) {
+    var track = btn.parentElement.querySelector('.row-track');
+    if (track) { track.scrollBy({ left: dir * Math.round(track.clientWidth * 0.8), behavior: 'smooth' }); }
+}
+</script>
 {% endif %}
 {% endblock %}

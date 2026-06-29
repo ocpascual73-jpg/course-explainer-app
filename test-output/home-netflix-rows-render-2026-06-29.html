@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Course Explainer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">Course Explainer</h1>
+      <nav>
+        <ul class="main-nav">
+          <li><a href="/" aria-current="page">Home</a></li>
+          <li><a href="/course/1">Course Details</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    
+<section class="hero">
+    <div class="hero-content">
+        
+        <p class="hero-eyebrow">Featured Course</p>
+        <h2 class="hero-title">Introduction to Python</h2>
+        <p class="hero-subtitle">Learn the basics of Python programming.</p>
+        <div class="hero-actions">
+            <a class="btn btn--primary" href="/course/1">Learn More</a>
+            <a class="btn btn--outline" href="#courses">All Courses</a>
+        </div>
+        
+    </div>
+</section>
+
+<h3 class="section-heading" id="courses">Available Courses</h3>
+
+
+
+
+
+
+
+<section class="course-row">
+    <h4 class="course-row__heading">All Courses</h4>
+    <div class="course-row__viewport">
+        <button type="button" class="row-arrow row-arrow--left" aria-label="Scroll All Courses left" onclick="nfScroll(this, -1)">&#8249;</button>
+        <div class="row-track">
+            
+            
+            
+<div class="course-card nf-card">
+    <span class="nf-card__badge" aria-hidden="true">I</span>
+    <div class="nf-card__overlay">
+        <h4 class="course-card__title">Introduction to Python</h4>
+        <p class="course-card__meta">
+            <span class="course-card__avatar" aria-hidden="true">J</span>
+            <span>John Doe &middot; 4 weeks</span>
+        </p>
+        
+        <div class="course-card__topics">
+            
+            <span class="topic-chip">Variables &amp; data types</span>
+            
+            <span class="topic-chip">Control flow</span>
+            
+            <span class="topic-chip">Functions</span>
+            
+            <span class="topic-chip">Modules</span>
+            
+        </div>
+        
+        <a class="btn btn--primary course-card__cta" href="/course/1" aria-label="View course: Introduction to Python">View Course</a>
+    </div>
+</div>
+
+            
+            
+            
+            
+<div class="course-card nf-card">
+    <span class="nf-card__badge" aria-hidden="true">W</span>
+    <div class="nf-card__overlay">
+        <h4 class="course-card__title">Web Development with Flask</h4>
+        <p class="course-card__meta">
+            <span class="course-card__avatar" aria-hidden="true">J</span>
+            <span>Jane Smith &middot; 6 weeks</span>
+        </p>
+        
+        <div class="course-card__topics">
+            
+            <span class="topic-chip">Routing</span>
+            
+            <span class="topic-chip">Templates</span>
+            
+            <span class="topic-chip">Forms</span>
+            
+            <span class="topic-chip">Deployment</span>
+            
+        </div>
+        
+        <a class="btn btn--primary course-card__cta" href="/course/2" aria-label="View course: Web Development with Flask">View Course</a>
+    </div>
+</div>
+
+            
+            
+            
+            
+<div class="course-card nf-card">
+    <span class="nf-card__badge" aria-hidden="true">D</span>
+    <div class="nf-card__overlay">
+        <h4 class="course-card__title">Data Science Fundamentals</h4>
+        <p class="course-card__meta">
+            <span class="course-card__avatar" aria-hidden="true">A</span>
+            <span>Alice Johnson &middot; 8 weeks</span>
+        </p>
+        
+        <div class="course-card__topics">
+            
+            <span class="topic-chip">NumPy</span>
+            
+            <span class="topic-chip">pandas</span>
+            
+            <span class="topic-chip">Visualization</span>
+            
+            <span class="topic-chip">Machine learning basics</span>
+            
+        </div>
+        
+        <a class="btn btn--primary course-card__cta" href="/course/3" aria-label="View course: Data Science Fundamentals">View Course</a>
+    </div>
+</div>
+
+            
+            
+            
+            
+<div class="course-card nf-card">
+    <span class="nf-card__badge" aria-hidden="true">G</span>
+    <div class="nf-card__overlay">
+        <h4 class="course-card__title">Go Programming Language</h4>
+        <p class="course-card__meta">
+            <span class="course-card__avatar" aria-hidden="true">R</span>
+            <span>Robert Pike &middot; 5 weeks</span>
+        </p>
+        
+        <div class="course-card__topics">
+            
+            <span class="topic-chip">Goroutines</span>
+            
+            <span class="topic-chip">Channels</span>
+            
+            <span class="topic-chip">Interfaces</span>
+            
+            <span class="topic-chip">Packages &amp; modules</span>
+            
+        </div>
+        
+        <a class="btn btn--primary course-card__cta" href="/course/4" aria-label="View course: Go Programming Language">View Course</a>
+    </div>
+</div>
+
+            
+            
+        </div>
+        <button type="button" class="row-arrow row-arrow--right" aria-label="Scroll All Courses right" onclick="nfScroll(this, 1)">&#8250;</button>
+    </div>
+</section>
+
+
+<section class="course-row">
+    <h4 class="course-row__heading">Programming</h4>
+    <div class="course-row__viewport">
+        <button type="button" class="row-arrow row-arrow--left" aria-label="Scroll Programming left" onclick="nfScroll(this, -1)">&#8249;</button>
+        <div class="row-track">
+            
+            
+            
+<div class="course-card nf-card">
+    <span class="nf-card__badge" aria-hidden="true">I</span>
+    <div class="nf-card__overlay">
+        <h4 class="course-card__title">Introduction to Python</h4>
+        <p class="course-card__meta">
+            <span class="course-card__avatar" aria-hidden="true">J</span>
+            <span>John Doe &middot; 4 weeks</span>
+        </p>
+        
+        <div class="course-card__topics">
+            
+            <span class="topic-chip">Variables &amp; data types</span>
+            
+            <span class="topic-chip">Control flow</span>
+            
+            <span class="topic-chip">Functions</span>
+            
+            <span class="topic-chip">Modules</span>
+            
+        </div>
+        
+        <a class="btn btn--primary course-card__cta" href="/course/1" aria-label="View course: Introduction to Python">View Course</a>
+    </div>
+</div>
+
+            
+            
+            
+            
+<div class="course-card nf-card">
+    <span class="nf-card__badge" aria-hidden="true">W</span>
+    <div class="nf-card__overlay">
+        <h4 class="course-card__title">Web Development with Flask</h4>
+        <p class="course-card__meta">
+            <span class="course-card__avatar" aria-hidden="true">J</span>
+            <span>Jane Smith &middot; 6 weeks</span>
+        </p>
+        
+        <div class="course-card__topics">
+            
+            <span class="topic-chip">Routing</span>
+            
+            <span class="topic-chip">Templates</span>
+            
+            <span class="topic-chip">Forms</span>
+            
+            <span class="topic-chip">Deployment</span>
+            
+        </div>
+        
+        <a class="btn btn--primary course-card__cta" href="/course/2" aria-label="View course: Web Development with Flask">View Course</a>
+    </div>
+</div>
+
+            
+            
+            
+            
+            
+            
+<div class="course-card nf-card">
+    <span class="nf-card__badge" aria-hidden="true">G</span>
+    <div class="nf-card__overlay">
+        <h4 class="course-card__title">Go Programming Language</h4>
+        <p class="course-card__meta">
+            <span class="course-card__avatar" aria-hidden="true">R</span>
+            <span>Robert Pike &middot; 5 weeks</span>
+        </p>
+        
+        <div class="course-card__topics">
+            
+            <span class="topic-chip">Goroutines</span>
+            
+            <span class="topic-chip">Channels</span>
+            
+            <span class="topic-chip">Interfaces</span>
+            
+            <span class="topic-chip">Packages &amp; modules</span>
+            
+        </div>
+        
+        <a class="btn btn--primary course-card__cta" href="/course/4" aria-label="View course: Go Programming Language">View Course</a>
+    </div>
+</div>
+
+            
+            
+        </div>
+        <button type="button" class="row-arrow row-arrow--right" aria-label="Scroll Programming right" onclick="nfScroll(this, 1)">&#8250;</button>
+    </div>
+</section>
+
+
+<section class="course-row">
+    <h4 class="course-row__heading">Data Science</h4>
+    <div class="course-row__viewport">
+        <button type="button" class="row-arrow row-arrow--left" aria-label="Scroll Data Science left" onclick="nfScroll(this, -1)">&#8249;</button>
+        <div class="row-track">
+            
+            
+            
+            
+            
+            
+            
+<div class="course-card nf-card">
+    <span class="nf-card__badge" aria-hidden="true">D</span>
+    <div class="nf-card__overlay">
+        <h4 class="course-card__title">Data Science Fundamentals</h4>
+        <p class="course-card__meta">
+            <span class="course-card__avatar" aria-hidden="true">A</span>
+            <span>Alice Johnson &middot; 8 weeks</span>
+        </p>
+        
+        <div class="course-card__topics">
+            
+            <span class="topic-chip">NumPy</span>
+            
+            <span class="topic-chip">pandas</span>
+            
+            <span class="topic-chip">Visualization</span>
+            
+            <span class="topic-chip">Machine learning basics</span>
+            
+        </div>
+        
+        <a class="btn btn--primary course-card__cta" href="/course/3" aria-label="View course: Data Science Fundamentals">View Course</a>
+    </div>
+</div>
+
+            
+            
+            
+            
+        </div>
+        <button type="button" class="row-arrow row-arrow--right" aria-label="Scroll Data Science right" onclick="nfScroll(this, 1)">&#8250;</button>
+    </div>
+</section>
+
+
+<script>
+function nfScroll(btn, dir) {
+    var track = btn.parentElement.querySelector('.row-track');
+    if (track) { track.scrollBy({ left: dir * Math.round(track.clientWidth * 0.8), behavior: 'smooth' }); }
+}
+</script>
+
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">© 2023 Course Explainer App</div>
+  </footer>
+</body>
+</html>

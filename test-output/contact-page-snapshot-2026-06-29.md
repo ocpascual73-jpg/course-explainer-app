@@ -1,0 +1,88 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - heading "Course Explainer" [level=1] [ref=e4]
+      - navigation [ref=e5]:
+        - list [ref=e6]:
+          - listitem [ref=e7]:
+            - link "Home" [ref=e8] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e9]:
+            - link "Course Details" [ref=e10] [cursor=pointer]:
+              - /url: /course/1
+          - listitem [ref=e11]:
+            - link "Contact" [ref=e12] [cursor=pointer]:
+              - /url: /contact
+  - main [ref=e13]:
+    - link "← Back to home" [ref=e14] [cursor=pointer]:
+      - /url: /
+    - generic [ref=e15]:
+      - generic [ref=e16]: "@"
+      - generic [ref=e17]:
+        - heading "Contact Us" [level=1] [ref=e18]
+        - paragraph [ref=e19]: We'd love to hear from you. Reach us through any of the channels below.
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - heading "Find us on social" [level=2] [ref=e22]
+        - list [ref=e23]:
+          - listitem [ref=e24]:
+            - link "Twitter/X (opens in new tab)" [ref=e25] [cursor=pointer]:
+              - /url: https://twitter.com/courseexplainer
+              - img [ref=e26]
+              - generic [ref=e28]: Twitter/X
+          - listitem [ref=e29]:
+            - link "LinkedIn (opens in new tab)" [ref=e30] [cursor=pointer]:
+              - /url: https://linkedin.com/company/courseexplainer
+              - img [ref=e31]
+              - generic [ref=e35]: LinkedIn
+          - listitem [ref=e36]:
+            - link "GitHub (opens in new tab)" [ref=e37] [cursor=pointer]:
+              - /url: https://github.com/courseexplainer
+              - img [ref=e38]
+              - generic [ref=e40]: GitHub
+      - complementary [ref=e41]:
+        - generic [ref=e42]:
+          - heading "Get in touch" [level=2] [ref=e43]
+          - generic [ref=e44]:
+            - generic [ref=e45]: Name
+            - generic [ref=e46]: Course Explainer Team
+          - generic [ref=e47]:
+            - generic [ref=e48]: Email
+            - link "hello@courseexplainer.com" [ref=e50] [cursor=pointer]:
+              - /url: mailto:hello@courseexplainer.com
+          - generic [ref=e51]:
+            - generic [ref=e52]: Address
+            - generic [ref=e53]: 123 Learning Lane, Suite 400, San Francisco, CA 94105
+          - link "Send us an email" [ref=e54] [cursor=pointer]:
+            - /url: mailto:hello@courseexplainer.com
+  - contentinfo [ref=e55]:
+    - generic [ref=e56]:
+      - generic [ref=e57]:
+        - generic [ref=e58]:
+          - paragraph [ref=e59]: Course Explainer
+          - paragraph [ref=e60]: Discover and explore curated courses, anytime, anywhere.
+        - generic [ref=e61]:
+          - heading "Navigation" [level=2] [ref=e62]
+          - list [ref=e63]:
+            - listitem [ref=e64]:
+              - link "Home" [ref=e65] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e66]:
+              - link "Courses" [ref=e67] [cursor=pointer]:
+                - /url: /course/1
+            - listitem [ref=e68]:
+              - link "Contact" [ref=e69] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e70]:
+          - heading "Connect" [level=2] [ref=e71]
+          - list [ref=e72]:
+            - listitem [ref=e73]:
+              - link "Twitter / X" [ref=e74] [cursor=pointer]:
+                - /url: https://twitter.com/courseexplainer
+            - listitem [ref=e75]:
+              - link "LinkedIn" [ref=e76] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/courseexplainer
+            - listitem [ref=e77]:
+              - link "GitHub" [ref=e78] [cursor=pointer]:
+                - /url: https://github.com/courseexplainer
+      - generic [ref=e79]: © 2026 Course Explainer. All rights reserved.

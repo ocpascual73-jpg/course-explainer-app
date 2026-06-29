@@ -30,7 +30,7 @@
                     {% else %}
                     <span>{{ link.platform }}</span>
                     {% endif %}
-                    <span class="social-card-list__label">{{ link.platform }}</span>
+                    <span class="social-card-list__label">{{ link.platform | replace('/', ' / ') }}</span>
                 </a>
             </li>
             {% endfor %}

@@ -1,0 +1,76 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - heading "Course Explainer" [level=1] [ref=e4]
+      - navigation [ref=e5]:
+        - list [ref=e6]:
+          - listitem [ref=e7]:
+            - link "Home" [ref=e8] [cursor=pointer]:
+              - /url: /
+          - listitem [ref=e9]:
+            - link "Course Details" [ref=e10] [cursor=pointer]:
+              - /url: /course/1
+          - listitem [ref=e11]:
+            - link "Contact" [ref=e12] [cursor=pointer]:
+              - /url: /contact
+  - main [ref=e13]:
+    - link "← Back to courses" [ref=e14] [cursor=pointer]:
+      - /url: /
+    - generic [ref=e15]:
+      - generic [ref=e16]: I
+      - generic [ref=e17]:
+        - heading "Introduction to Python" [level=1] [ref=e18]
+        - paragraph [ref=e19]: Learn the basics of Python programming.
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - heading "What you'll learn" [level=2] [ref=e22]
+        - list [ref=e23]:
+          - listitem [ref=e24]: ✓ Variables & data types
+          - listitem [ref=e25]: ✓ Control flow
+          - listitem [ref=e26]: ✓ Functions
+          - listitem [ref=e27]: ✓ Modules
+      - complementary [ref=e28]:
+        - generic [ref=e29]:
+          - heading "Course details" [level=2] [ref=e30]
+          - generic [ref=e31]:
+            - generic [ref=e32]: Instructor
+            - generic [ref=e33]: John Doe
+          - generic [ref=e34]:
+            - generic [ref=e35]: Duration
+            - generic [ref=e36]: 4 weeks
+          - generic [ref=e37]:
+            - generic [ref=e38]: Modules
+            - generic [ref=e39]: "4"
+          - link "Enroll Now" [ref=e40] [cursor=pointer]:
+            - /url: /contact
+  - contentinfo [ref=e41]:
+    - generic [ref=e42]:
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - paragraph [ref=e45]: Course Explainer
+          - paragraph [ref=e46]: Discover and explore curated courses, anytime, anywhere.
+        - generic [ref=e47]:
+          - heading "Navigation" [level=2] [ref=e48]
+          - list [ref=e49]:
+            - listitem [ref=e50]:
+              - link "Home" [ref=e51] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e52]:
+              - link "Courses" [ref=e53] [cursor=pointer]:
+                - /url: /course/1
+            - listitem [ref=e54]:
+              - link "Contact" [ref=e55] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e56]:
+          - heading "Connect" [level=2] [ref=e57]
+          - list [ref=e58]:
+            - listitem [ref=e59]:
+              - link "Twitter / X" [ref=e60] [cursor=pointer]:
+                - /url: https://twitter.com/courseexplainer
+            - listitem [ref=e61]:
+              - link "LinkedIn" [ref=e62] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/courseexplainer
+            - listitem [ref=e63]:
+              - link "GitHub" [ref=e64] [cursor=pointer]:
+                - /url: https://github.com/courseexplainer
+      - generic [ref=e65]: © 2026 Course Explainer. All rights reserved.
